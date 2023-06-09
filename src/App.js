@@ -22,6 +22,33 @@ function App() {
   const deleteTask = (id) => {
     setTodoList(todoList.filter((task) => task.id !== id));
   };
+  
+  
+  ///////////////////////
+  import "./App.css";
+import { useState } from "react";
+import { Task } from "./Task";
+
+function App() {
+  const [todoList, setTodoList] = useState([]);
+  const [newTask, setNewTask] = useState("");
+
+  const handleChange = (event) => {
+    setNewTask(event.target.value);
+  };
+
+  const addTask = () => {
+    const task = {
+      id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
+      taskName: newTask,
+      completed: false,
+    };
+    setTodoList(task.taskName !== "" ? [...todoList, task] : todoList);
+  };
+
+  const deleteTask = (id) => {
+    setTodoList(todoList.filter((task) => task.id !== id));
+  };
 
   const completeTask = (id) => {
     setTodoList(
