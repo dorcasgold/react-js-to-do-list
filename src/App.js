@@ -22,23 +22,6 @@ function App() {
   const deleteTask = (id) => {
     setTodoList(todoList.filter((task) => task.id !== id));
   };
-  
-  
-  ///////////////////////
-
-
-  const addTask = () => {
-    const task = {
-      id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
-      taskName: newTask,
-      completed: false,
-    };
-    setTodoList(task.taskName !== "" ? [...todoList, task] : todoList);
-  };
-
-  const deleteTask = (id) => {
-    setTodoList(todoList.filter((task) => task.id !== id));
-  };
 
   const completeTask = (id) => {
     setTodoList(
